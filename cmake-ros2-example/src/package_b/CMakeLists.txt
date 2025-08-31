@@ -10,6 +10,9 @@ add_executable(package_b src/package_b.cpp)
 find_package(packageA REQUIRED)
 target_link_libraries(package_b packageA::packageA)
 
+find_package(package_a REQUIRED)
+target_link_libraries(package_b package_a::package_a)
+
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 ament_target_dependencies(package_b rclcpp)
